@@ -1,13 +1,15 @@
 <template>
-  <div class="index">
-    <div class="title" @click='linkToRank'>{{msg}}</div>
+  <div class="rank">
+    <div class="title" @click='showRouter'>{{msg}}</div>
+    <div>appid:{{appid}}</div> 
+    <div>country:{{country}}</div> 
   </div>
 </template>
 
 <script>
 export default {
    metaInfo: {
-    title: '首页', // set a title
+    title: '详情页', // set a title
     meta: [{
       name: 'renderer',
       content: 'webkit'
@@ -17,14 +19,22 @@ export default {
       href: 'https://assets-cdn.github.com/'
     }]
   },
-  data () {
+  data() {
     return {
-      msg: 'ASO100 index'
+      msg: 'ASO100 hahahaa'
+    }
+  },
+  computed: {
+    appid() {
+      return this.$route.params.appid;
+    },
+    country() {
+      return this.$route.params.country;
     }
   },
   methods: {
-    linkToRank() {
-       this.$router.push({name: 'rank', params: { appid: 123,country: 'cn'}});
+    showRouter(){
+      console.log(this.$route.params)
     }
   }
 }
@@ -35,15 +45,10 @@ export default {
   
 @import './../assets/css/common.scss';
 
-.index{
-  .title{
-    font-size: 24px;
-    color: #abcdef;
-  }
-  .content{
-    font-size: 26px;
-    @include dot(200px)
-  }
+.title{
+  font-size: 24px;
+  color: #abcdef;
 }
+
   
 </style>

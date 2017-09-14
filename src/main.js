@@ -7,10 +7,13 @@ import Vuex from 'vuex'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
 import MetaInfo from 'vue-meta-info'
+import axios from 'axios'
 
 Vue.use(Vuex)
 Vue.use(iView)
 Vue.use(MetaInfo)
+
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
